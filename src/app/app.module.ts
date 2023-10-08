@@ -6,6 +6,8 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { HomeModule } from './modules/home/home.module';
+import { UsersModule } from './modules/users/users.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +23,9 @@ import { AuthModule } from './modules/auth/auth.module';
     SharedModule,
 
     // Modules
+    HomeModule,
     AuthModule,
+    UsersModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

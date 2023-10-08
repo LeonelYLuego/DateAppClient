@@ -1,0 +1,33 @@
+<form [formGroup]="registerForm" (submit)="register()">
+  <h2 class="text-center text-primary">Regístrate</h2>
+  <hr />
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control mb-3"
+      name="username"
+      formControlName="username"
+      placeholder="Nombre de usuario"
+    />
+    <input
+      type="text"
+      class="form-control mb-3"
+      name="email"
+      formControlName="email"
+      placeholder="Correo electrónico"
+    />
+    <input
+      type="password"
+      class="form-control mb-3"
+      name="password"
+      formControlName="password"
+      placeholder="Contraseña"
+    />
+  </div>
+  <div class="text-center">
+    <button class="btn btn-sucess me-2" type="submit">Registrarme</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">
+      Cancelar
+    </button>
+  </div>
+</form>

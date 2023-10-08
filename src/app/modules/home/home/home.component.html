@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <div style="text-align: center" *ngIf="!registerMode">
+    <h1>Encuentra tu pareja perfecta</h1>
+    <p class="lead">Regístrate para ver tus potenciales parejas</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg me-2" (click)="registerToggle()">
+        Registrarme
+      </button>
+      <button class="btn btn-primary btn-lg">Conocer más</button>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="registerMode">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (response)="registerResponse($event)"></app-register>
+      </div>
+    </div>
+  </div>
+</div>
