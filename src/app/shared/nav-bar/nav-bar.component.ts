@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,7 +17,11 @@ export class NavBarComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     if (localStorage.getItem('token') && localStorage.getItem('username')) {
@@ -36,12 +42,17 @@ export class NavBarComponent implements OnInit {
         localStorage.setItem('username', result.username);
         this.logged = true;
         this.username = result.username;
-      } catch {}
+        this.logInForm.reset();
+        this.router.navigate(['/members']);
+      } catch {
+        this.toastr.info('User or password incorrect');
+      }
     }
   }
 
   async logOut(): Promise<void> {
     localStorage.clear();
     this.logged = false;
+    this.router.navigate(['/']);
   }
 }

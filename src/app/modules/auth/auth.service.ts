@@ -26,4 +26,10 @@ export class AuthService {
       registerInterface
     );
   }
+
+  logged(): boolean {
+    return (
+      !!localStorage.getItem('token') && !!localStorage.getItem('username')
+    );
+  }
 }
