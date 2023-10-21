@@ -1,0 +1,20 @@
+<h4>
+  Internal server error - if you refresh the page the information will lose
+</h4>
+<ng-container *ngIf="error">
+  <h5 class="text-danger">Error: {{ error.message }}</h5>
+  <p class="font-weight-bold">
+    The main reason for this error is the back-end, please forgive the UI
+    developers.
+  </p>
+  <p>Next steps:</p>
+  <ol>
+    <li>Open the developer tools of your browser</li>
+    <li>Validate the error request in the "network" tab</li>
+    <li>Check the request URL - Is the URL that you request?</li>
+    <li>
+      Replicate the error in Postman - if you obtain the same error, Angular is
+      not the problem
+    </li>
+  </ol>
+</ng-container>
