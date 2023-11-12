@@ -1,4 +1,4 @@
-const SERVER_URL = 'https://localhost:7276/Api';
+const SERVER_URL = 'http://localhost:5206/Api';
 
 const SERVER_RESOURCE = {
   USERS: SERVER_URL + '/Users',
@@ -9,6 +9,7 @@ const SERVER_RESOURCE = {
 export const SERVER_ENDPOINTS = {
   USERS: {
     BASE_ENDPOINT: SERVER_RESOURCE.USERS,
+    BY_USERNAME: (username: string) => `${SERVER_RESOURCE.USERS}/${username}`,
   },
   ACCOUNT: {
     LOG_IN: SERVER_RESOURCE.ACCOUNT + '/LogIn',
